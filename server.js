@@ -32,6 +32,7 @@ app.post('/api/notes', function(req,res) {
 
   fs.readFile('db.json', (err,data) => {
     let jsonData = JSON.parse(data);
+    postStuff.id = jsonData.length;
     jsonData.push(postStuff);
     fs.writeFile('db.json', JSON.stringify(jsonData), (err,data) => {
       if (err) throw err;
@@ -40,7 +41,25 @@ app.post('/api/notes', function(req,res) {
   });
 })
 
-app.delete()
+app.delete("/api/notes/:id", (req,res) => {
+  let noteId = req.params.id;
+  fs.readFile('db.json', (err,data) => {
+    let jsonData = JSON.parse(data);
+    let filteredData = jsonData.filter(note => {
+      return note.id !== parseInt(noteId);
+    })
+    let i=0;
+    let updatedIds = filteredData.map(note => {
+      note.id = i;
+      i++;
+      return note;
+    })
+    fs.writeFile('db.json', JSON.stringify(updatedIds), (err,data) => {
+      if (err) throw err;
+      res.send('note deleted');
+    })
+  })
+})
 
 app.listen(port)
 
