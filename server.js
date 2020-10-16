@@ -10,6 +10,7 @@ app.use(express.json())
 app.use(express.static('public'))
 const port = process.env.PORT || 5000
 
+// route handlers ==================================================================
 app.get('/notes', (req,res) => {
   res.sendFile(path.join(__dirname,"/public/notes.html"));
 })
