@@ -4,7 +4,8 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/kev-luo/note-taker)
 
 ## Description
-used express route handlers to make get,post, and delete requests. also deployed a live application to heroku, which wouldn't have been possible using github. 
+This is a note taking application that allows users to easily save and delete notes. Instead of using an actual database, I wrote all the POST request bodies to a JSON file on my local machine. While this limits the applicability of the application, I still learned a lot about creating basic server applications using Express. Express essentially made creating, and maintaining a web server easier compared to using Node's HTTP package. 
+When making the DELETE route handler, I realized the importance of making unique keys to keep track of data inside your database. I also noticed that the order of your route handlers is important if you are making the same request method to similar URL's. 
 
 ## Table of Contents
   - [Installation](#installation)
@@ -17,14 +18,15 @@ used express route handlers to make get,post, and delete requests. also deployed
     npm install
 
 ## Usage
+To use this application, simply visit the deployed link below.
 
+[Note-Taker](https://stark-escarpment-94046.herokuapp.com/)
 
 ## License
 Licensed under the [MIT](https://opensource.org/licenses/MIT) License.
 
 ## Contributing
-clone a copy of the repository to your local machine and get to work
-
+Feel free to clone a copy of the repository to your local machine add additional functionalities.
 
 ## Questions
 * [kvn.luo@gmail.com](kvn.luo@gmail.com)
